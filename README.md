@@ -1,6 +1,6 @@
 # A-GUI-Virtual-Assistant-with-python
 
 
-Hello, I am Abhhi a beginner programmer. This is a program I made almost completely bymyself. If you find any way to improve it please tell me.
+Hello, I've been playing around with this virtual assistant, while trying to self teach myself python. Just like in the previous version, If you find any way to improve it please tell me.
 
 
