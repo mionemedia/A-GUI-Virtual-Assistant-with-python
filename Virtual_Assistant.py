@@ -1,3 +1,4 @@
+import pip
 import speech_recognition as sr    #To convert speech into text
 import pyttsx3                     #To convert text into speech
 import datetime                    #To get the date and time
@@ -11,7 +12,7 @@ import pyjokes                     #For some really bad jokes
 from playsound import playsound    #To playsound
 import keyboard                    #To get keyboard
   
-name_file = open("Assistant_name", "r")
+name_file = open("coya", "r")
 name_assistant = name_file.read()
 
 engine = pyttsx3.init('sapi5')  
@@ -91,7 +92,7 @@ wishMe()
 def Process_audio():
 
     run = 1
-    if __name__=='__main__':
+    if __name__=='main__':
         while run==1:
 
             app_string = ["open word", "open powerpoint", "open excel", "open zoom","open notepad",  "open chrome"]
