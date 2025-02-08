@@ -1,3 +1,4 @@
+from gettext import install
 import pip
 import speech_recognition as sr    #To convert speech into text
 import pyttsx3                     #To convert text into speech
@@ -9,10 +10,12 @@ import time                        #To calculate time
 import subprocess                  #To open files
 from tkinter import *              #For the graphics
 import pyjokes                     #For some really bad jokes
-from playsound import playsound    #To playsound
+from speech_recognition import audio    #To playsound
 import keyboard                    #To get keyboard
-  
-name_file = open("coya", "r")
+
+pip.main(['install', 'playsound'])
+
+name_file = open("Assittant_name", "r")
 name_assistant = name_file.read()
 
 engine = pyttsx3.init('sapi5')  
@@ -68,6 +71,12 @@ def get_audio():
 
 
 def note(text):
+    """
+    Creates a note with the given text and opens it in Notepad.
+
+    Parameters:
+    text (str): The text to be written in the note.
+    """
     date = datetime.datetime.now()
     file_name = str(date).replace(":", "-") + "-note.txt"
 
@@ -77,7 +86,7 @@ def note(text):
     subprocess.Popen(["notepad.exe", file_name])
 
 
-def date():
+def announce_date():
     now = datetime.datetime.now()
     month_name = now.month
     day_name = now.day
@@ -97,7 +106,7 @@ def Process_audio():
 
             app_string = ["open word", "open powerpoint", "open excel", "open zoom","open notepad",  "open chrome"]
             app_link = [r'\Microsoft Office Word 2007.lnk',r'\Microsoft Office PowerPoint 2007.lnk', r'\Microsoft Office Excel 2007.lnk', r'\Zoom.lnk', r'\Notepad.lnk', r'\Google Chrome.lnk' ]
-            app_dest = r'C:\Users\shriraksha\AppData\Roaming\Microsoft\Windows\Start Menu\Programs'
+            app_dest = r'C:\Users\mi-1d\AppData\Roaming\Microsoft\Windows\Start Menu\Programs'
 
             statement = get_audio().lower()
             results = ''
@@ -204,7 +213,7 @@ def Process_audio():
                 speak(f"the time is {strTime}")
 
             if 'date' in statement:
-                date()
+                announce_date()
 
             if 'who are you' in statement or 'what can you do' in statement:
                     speak('I am '+name_assistant+' your personal assistant. I am programmed to minor tasks like opening youtube, google chrome, gmail and search wikipedia etcetra') 
